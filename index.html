@@ -1,0 +1,65 @@
+
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+</head>
+<body>
+
+<div style="display:table; border-collapse:collapse; height:10em; width:100%; background: #F5F5F5; padding:0px; margin:0px;">
+	<div style="display:table-row;">
+		<div style="display:table-cell; text-align:right; vertical-align:top; padding:0px;">
+			<span style="color:orange; font-size:5em; line-height:1.2em; font-style:italic; font-weight:bold;">signuistics.at</span>
+		</div>
+	</div>
+</div>
+
+ <div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">Handform</a>
+  <a href="#contact">Information</a>
+  <a href="#lista">Lista</a>
+  <div class="dropdown">
+    <button class="dropbtn"><a href="#statistik">Statistik</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Subnav exempel 1</a>
+      <a href="#">Subnav exempel 2</a>
+		<div class="drop2down-content">
+		  <a href="#">Sub2nav exempel</a>
+		</div>
+      <a href="#">Subnav exempel 3</a>
+    </div>
+  </div>
+  <a href="#about">Litteratur</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div> 
+
+<div class="hvmain">
+<p>&nbsp;</p>
+<h2>mainpage.</h2>
+<p>&nbsp;</p>
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis fermentum purus sed sagittis. Vestibulum quam erat, aliquet at finibus sed, gravida aliquam sapien. Phasellus vitae ex felis. Nulla tempus finibus augue, quis dictum odio pharetra sit amet. Donec eu dui vitae ex auctor aliquet. Nunc pellentesque lorem eget tellus viverra suscipit. Duis sed sem massa.</p>
+<p>Aenean eget enim semper, vehicula arcu et, egestas felis. Nam gravida, diam sed fermentum luctus, leo ligula aliquet enim, vel viverra eros nisi in arcu. Fusce tincidunt lobortis volutpat. Aliquam in turpis arcu. Aenean tincidunt tincidunt tellus, vel elementum neque tempus sed. Curabitur ligula ex, rutrum nec volutpat ac, pellentesque a lorem. Morbi sodales ornare nunc ut mollis. Curabitur accumsan malesuada nisi, eu pharetra nunc pulvinar id. Aenean nulla justo, aliquam sit amet condimentum id, tincidunt quis massa. Morbi eu neque at neque dictum volutpat vel ut tortor. In lacus enim, ornare id mollis vitae, pellentesque non libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+</div>
+
+<div class="footer">
+<hr>
+<h2>footer.</h2>
+Ska vara nere om main fält är för kort i height. Just nu är det mitten av browser och ska vara nere.<br> Om main innehåll tillräckligt "lång" är det automatiskt på "botten".
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
