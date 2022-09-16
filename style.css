@@ -1,7 +1,22 @@
 /* Body style*/
+/* Reset box model. */
+html { box-sizing: border-box; }
+*, :before, :after { box-sizing: inherit; }
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 body {
 	font-family: helvetica, arial;
+	height: 100%;
+	margin: 0;
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
 }
+body * { flex: none; }
 
 /* Background color to the top navigation */
 .topnav {
@@ -133,7 +148,7 @@ body {
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
 	body {
-		margin: 0;
+		padding: 0;
 	}
   .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
@@ -160,5 +175,5 @@ body {
 	font-size: 1.2em;
 }
 footer {
-	bottom: 0px;
+	margin-top: auto;
 }
