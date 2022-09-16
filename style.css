@@ -18,9 +18,20 @@ body {
 }
 body * { flex: none; }
 
+.headerhat {
+	background-color: #f5f5f5;
+	padding: 1em .5em;
+	height: 172px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.headerhat img {
+	max-width: 100%;
+}
+
 /* Background color to the top navigation */
 .topnav {
-  background-color: white; /* #333; */
+  background-color: #f5f5f5; /* #333; */
   overflow: hidden;
 }
 
