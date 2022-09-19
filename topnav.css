@@ -1,0 +1,108 @@
+/* Menu text styling. */
+#menu {
+    margin: 0;
+    font-family: helvetica, arial;
+    font-size: 17px;
+    line-height: 10px;
+    color: blue;
+    margin: 54px 0 0;
+    position: relative;
+}
+/* Hilite menu item on mouseover. */
+#menu a:hover, #menu label:hover {
+    background: #555;
+    color: #fff;
+}
+/* Current page. */
+#menu .active {
+  background: lightgreen; /* #04AA6D; */
+}
+#menu a {
+    color: currentColor;
+    text-decoration: none;
+}
+#menu label { cursor: pointer; }
+
+/* Submenu style. */
+/* #menu > ul label { font-weight: bold; } */ /* make submenus bold */
+#menu > ul label:after {                      /* mark sumbenus with '...' */
+    padding: 0 !important;
+    content: "…";
+}
+
+/* Menu item styling. */
+#menu a, #menu label {
+    padding: 14px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#menu, #menu * { background: #f5f5f5; } /* same background color as page logo */
+/* Button borders. */
+#menu a, #menu label {
+    border: 1px solid darkblue;
+    margin-bottom: -1px; /* make horizontal borders overlap */
+}
+
+#menu li { display: flex; flex-direction: column; }
+#menu label, #menu a {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#menu > ul label:after { padding-left: 6px; }  /* submenu '+'/'-' padding */
+#menu input { display: none; } /* hide all state checkboxes */
+
+/* Unstyle <ul> and <li> tags. */
+#menu ul {
+    margin: 0;
+    padding: 0;
+}
+#menu li {
+    display: block;
+}
+
+/* When page is wide. */
+@media screen and (min-width: 600px) {
+    #menu { z-index: 1; }
+    /* Hide menu open/close menu button. */
+    #menu > label { display: none; }
+
+    /* Make vertical borders overlap. */
+    #menu a, #menu label { margin-right: -1px; }
+
+    #menu li { position: relative; }
+    #menu ul { position: absolute; top: 100%; left: 0; }
+    #menu ul ul ul { top: 0; left: 100%; }
+
+    /* Display top level menu horizontally. */
+    #menu > ul { position: static; display: flex; flex-direction: row;  }
+
+    /* Hide submenus. */
+    #menu li ul { box-shadow: 0px 8px 16px 0px #0003; z-index: -1 } /* submenu shadow */
+    #menu li:not(:focus-within,:hover) ul { display: none; }
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the
+   first one. Also show a menu open/close button. */
+@media screen and (max-width: 600px) {
+    /* Indent submenu text. */
+    #menu    li li > a, #menu    li li > label { padding-left: 30px; }
+    #menu li li li > a, #menu li li li > label { padding-left: 48px; }
+
+    #menu > ul a, #menu > ul label { width: 100%; }
+
+    /* Menu open/close menu button. */
+    #menu > label { display: block; position: absolute; right: 0; }
+
+    /* Logic. */
+    #menu   input         + label:after { content: "+"; } /* submenu '+'/'-' text */
+    #menu   input:checked + label:after { content: "−"; }
+    #menu > input         + label:after { content: "☰"; } /* menu open/close button */
+    #menu > input:checked + label:after { content: "×"; }
+    #menu   input         ~ ul > li  { display: none; } /* menu items */
+    #menu   input:checked ~ ul > li  { display: flex; }
+
+    /* Show first menu item when menu is closed. */
+    #menu > input:not(:checked) ~ ul > li:first-child { display: flex; }
+    #menu > input:not(:checked) ~ ul > li:first-child a { width: unset; margin-right: auto; }
+}

@@ -5,33 +5,47 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<link rel="stylesheet" href="topnav.css">
 
 </head>
 <body>
 
-<div class="headerhat" align=right><img height="96" src="logo.svg"></div>
-
- <div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">Handform</a>
-  <a href="#contact">Information</a>
-  <a href="#lista">Lista</a>
-  <div class="dropdown">
-    <button class="dropbtn"><a href="#statistik">Statistik</a>
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Subnav exempel 1</a>
-      <a href="#">Subnav exempel 2</a>
-		<div class="drop2down-content">
-		  <a href="#">Sub2nav exempel</a>
-		</div>
-      <a href="#">Subnav exempel 3</a>
-    </div>
+<div class="headerhat" align=right>
+  <img height="96" src="logo.svg">
+  <div id=menu>
+    <!-- NOTE: The <input type=checkbox> tags are used to keep track of which
+         submenus are opened in 'narrow' mode. These only work they each have a
+         unique 'id', and if <label> after it have the same value in its 'for'
+         attribute. -->
+      <input id="menu-main" type=checkbox><label for="menu-main"></label>
+      <ul>
+        <li><a href="#home" class=active>Home</a>
+        <li><a href="#news">Handform</a>
+        <li><a href="#contact">Information</a>
+        <li><a href="#lista">Lista</a>
+        <li><input id="menu1" type=checkbox><label tabindex=0 for="menu1">Statistik</label>
+          <ul>
+            <li><a href="#">Subnav exempel 1</a>
+            <li><input id="menu1b" type=checkbox><label tabindex=0 for="menu1b">Subnav exempel 2</label>
+              <ul>
+                <li><a href="#">Sub2nav exempel 2a</a>
+                <li><a href="#">Sub2nav exempel 2b</a>
+              </ul>
+            <li><a href="#">Subnav exempel 3</a>
+          </ul>
+        <li><a href="#about">Litteratur</a>
+      </ul>
   </div>
-  <a href="#about">Litteratur</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-</div> 
+  <script>
+    /* Close menu when user clicks link inside it, or clicks outside it. */
+    /* (Is used for the narrow-screen menu.) */
+    onclick = e => {
+        if (!e.target.closest('#menu') || e.target.tagName === 'A') {
+            document.querySelector('#menu input').checked = false
+        }
+    }
+  </script>
+</div>
 
 <div class="hvmain">
 <p>&nbsp;</p>
@@ -46,17 +60,6 @@
 <h2>footer.</h2>
 Ska vara nere om main fält är för kort i height. Just nu är det mitten av browser och ska vara nere.<br> Om main innehåll tillräckligt "lång" är det automatiskt på "botten".
 </footer>
-
-<script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-</script>
 
 </body>
 </html>
